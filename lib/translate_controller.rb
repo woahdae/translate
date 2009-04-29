@@ -48,7 +48,11 @@ class TranslateController < ActionController::Base
   end
 
   def lookup(locale, key)
-    I18n.backend.send(:lookup, locale, key)
+    begin
+      I18n.backend.send(:lookup, locale, key)
+    rescue Exception => ex
+      logger.info "error retreiving key '#{key}': #{ex}.  Try editing yaml file directly"
+    end
   end
   helper_method :lookup
   

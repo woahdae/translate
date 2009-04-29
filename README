@@ -49,6 +49,10 @@ or something slightly smarter like this:
 It is recommended that you place add this style to your style sheet:
 span.translate:hover { border:solid 1px red; padding:-1px -1px; cursor: pointer;}
 
+Tricky stuff with in-place editing, you'll need to use the list (index action) for these kinds of things:
+    + Title bar - I recommend calling the I18n.translate() method instead of t()
+    + Error messages - The model names in active record don't seem to call the t method.
+
 
 Dependencies
 =========
