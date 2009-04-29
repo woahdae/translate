@@ -1,4 +1,5 @@
 require 'translate'
+require 'edit_in_place' if defined?(EDIT_IN_PLACE) && EDIT_IN_PLACE == true
 
 # TODO: Use new method available_locales once Rails is upgraded, see:
 # http://github.com/svenfuchs/i18n/commit/411f8fe7c8f3f89e9b6b921fa62ed66cb92f3af4

@@ -1,7 +1,7 @@
 Translate
 =========
 
-This plugin provides a web interface for translating Rails I18n texts (requires Rails 2.2 or higher) from one locale to another. The plugin has been tested only with the simple I18n backend that ships with Rails. I18n texts are read from and written to YAML files under config/locales.
+This plugin provides a web interface for making in-place translations of Rails I18n texts (requires Rails 2.2 or higher) from one locale to another. The plugin has been tested only with the simple I18n backend that ships with Rails. I18n texts are read from and written to YAML files under config/locales.
 
 To translate to a new locale you need to add a YAML file for that locale that contains the locale as the top key and at least one translation.
 
@@ -41,6 +41,15 @@ Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
 
 Now visit /translate in your web browser to start translating.
 
+To enable in-place editing for a WYSIWYG experience add this to the top of environment.rb:
+	EDIT_IN_PLACE = true
+or something slightly smarter like this:
+	EDIT_IN_PLACE = (Rails.env=="development")
+
+It is recommended that you place add this style to your style sheet:
+span.translate:hover { border:solid 1px red; padding:-1px -1px; cursor: pointer;}
+
+
 Dependencies
 =========
 
@@ -52,6 +61,11 @@ Authors
 
 - Peter Marklund (programming)
 - Joakim Westerlund (web design)
+
+Contributors
+=========
+
+- Dan Hixon (in-place editing)
 
 Many thanks to http://newsdesk.se for sponsoring the development of this plugin.
 

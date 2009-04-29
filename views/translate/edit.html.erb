@@ -1,6 +1,6 @@
 <% form_tag(translate_path) do %>
   <div class="translations">
-	  <h2>Translate "<%= @key %>" from <%= @from_locale %> to <%= @to_locale %></h2>
+	  <h2>Translate message from <%= @from_locale %> to <%= @to_locale %></h2>
 	  <% 
 	      from_text = lookup(@from_locale, @key)
 	      to_text = lookup(@to_locale, @key)
