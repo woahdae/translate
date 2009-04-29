@@ -5,6 +5,7 @@ module Translate
         t.translate_list 'translate'
         t.translate 'translate/translate', :action => 'translate'
         t.translate_reload 'translate/reload', :action => 'reload'
+        t.translate_edit 'translate/edit', :action => 'edit'
       end
     end
   end

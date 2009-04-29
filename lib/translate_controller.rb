@@ -17,7 +17,10 @@ class TranslateController < ActionController::Base
     paginate_keys
     @total_entries = @keys.size
   end
-  
+  def edit
+    initialize_keys
+    @key = params[:key]
+  end
   def translate
     I18n.backend.store_translations(@to_locale, Translate::Keys.to_deep_hash(params[:key]))
     Translate::Storage.new(@to_locale).write_to_file
