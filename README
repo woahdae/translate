@@ -44,7 +44,7 @@ Now visit /translate in your web browser to start translating.
 To enable in-place editing for a WYSIWYG experience add this to the top of environment.rb:
 	EDIT_IN_PLACE = true
 or something slightly smarter like this:
-	EDIT_IN_PLACE = (Rails.env=="development")
+	EDIT_IN_PLACE = (RAILS_ENV=="development")
 
 It is recommended that you place add this style to your style sheet:
 span.translate:hover { border:solid 1px red; padding:-1px -1px; cursor: pointer;}
@@ -52,7 +52,7 @@ span.translate:hover { border:solid 1px red; padding:-1px -1px; cursor: pointer;
 Tricky stuff with in-place editing, you'll need to use the list (index action) for these kinds of things:
     + Title bar - I recommend calling the I18n.translate() method instead of t()
     + Error messages - The model names in active record don't seem to call the t method.
-
+	+ Submit buttons - Use images or I18n.translate() method
 
 Dependencies
 =========
