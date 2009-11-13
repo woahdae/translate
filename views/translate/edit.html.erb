@@ -1,4 +1,6 @@
 <% form_tag(translate_path) do %>
+  <%= hidden_field_tag "redirect_to", params[:redirect_to] %>
+
   <div class="translations">
 	  <h2>Translate message from <%= @from_locale %> to <%= @to_locale %></h2>
 	  <% 
