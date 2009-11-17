@@ -6,10 +6,10 @@ module Translate
       end
     end
     
-    def self.included(klass)
+    def self.included(klass) 
       klass.class_eval do
         def translate_with_in_place_edit(*args)
-          return translate_without_in_place_edit(*args) unless defined?(session) && session[:translate_in_place]
+          return translate_without_in_place_edit(*args) unless @translate_in_place
           
           msgid = args.first
           return msgid if msgid.start_with?("<span")
@@ -50,7 +50,7 @@ module ActionController #:nodoc:
     before_filter :set_translate_in_place
     
     def set_translate_in_place
-      session[:translate_in_place] = params[:translate] == "true" unless params[:translate].nil?
+      session[:translate_in_place] = @translate_in_place = params[:translate] == "true" unless params[:translate].nil?
     end
   end
 end

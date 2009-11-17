@@ -156,7 +156,7 @@ class TranslateController < ActionController::Base
     session[:from_locale] = params[:from_locale] if params[:from_locale].present?
     #session[:to_locale] = params[:to_locale] if params[:to_locale].present?
     @from_locale = session[:from_locale].to_sym
-    @to_locale = I18n.locale.to_sym
+    @to_locale = (params[:locale] || I18n.locale).to_sym
     logger.info "from_locale: #{@from_locale}, to_locale: #{@to_locale}"
   end
   
